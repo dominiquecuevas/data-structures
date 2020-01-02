@@ -70,4 +70,8 @@ def parens_balanced(string):
     return parens_stack.is_empty()      # stack should be empty if balanced
 
 if __name__ == "__main__":
-    print(revstring('Nikki'))
+    print("revstring 'Nikki':", revstring('Nikki'))
+    print("revstring 'Millenium':", revstring("Millenium"))
+    print("balanced? ((4+2)-(2+1)(1-3))/((4-3)-(2+9)",parens_balanced("((4+2)-(2+1)(1-3))/((4-3)-(2+9)"))
+    print("balanced? ((4+2)-(2+1)(1-3)))/(4-3)-(2+9)",parens_balanced("((4+2)-(2+1)(1-3)))/(4-3)-(2+9)"))
+    print("balanced? ((4+2)-(2+1)(1-3))/(4-3)-(2+9)",parens_balanced("((4+2)-(2+1)(1-3))/(4-3)-(2+9)"))
