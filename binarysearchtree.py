@@ -24,6 +24,20 @@ class BinaryNode:
                 print("go right")
                 current = current.right
 
+    def find_recursively(self, data):
+        print("checking", self.data)
+        if self.data == data:
+            print(self)
+            return
+        elif data < self.data:
+            print("go left")
+            current = self.left
+            current.find_recursively(data)
+        elif data > self.data:
+            print("go right")
+            current = self.right
+            current.find_recursively(data)
+
 anakin = BinaryNode("Anakin")
 boba = BinaryNode("Boba")
 boba.left = anakin
