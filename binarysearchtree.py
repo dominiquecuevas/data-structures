@@ -32,10 +32,14 @@ class BinaryNode:
         elif data < self.data:
             print("go left")
             current = self.left
+            if current is None:
+                return
             current.find_recursively(data)
         elif data > self.data:
             print("go right")
             current = self.right
+            if current is None:
+                return
             current.find_recursively(data)
 
 anakin = BinaryNode("Anakin")
