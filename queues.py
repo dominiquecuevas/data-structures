@@ -81,7 +81,7 @@ def my_hotPotato(people, num):
 
     return queue.items[0] # return the last person left
 
-
-print("my first attempt:", hot_potato(people, 7))
-print("runestone's answer:", hotPotato(people,7))
-print("practice runestone with adjustment to count:", my_hotPotato(people, 7))
+if __name__ == "__main__":
+    print("my first attempt:", hot_potato(people, 7))
+    print("runestone's answer:", hotPotato(people,7))
+    print("practice runestone with adjustment to count:", my_hotPotato(people, 7))
