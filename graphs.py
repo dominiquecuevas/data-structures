@@ -49,6 +49,21 @@ class FriendGraph:
 
         return False
 
+    def are_connected_rec(self, person1, person2, seen=None):
+        # on new recursions, person1 becomes the adjacents
+        if not seen:
+            seen = set()
+        print(f"adding {person1}")
+        if person1 == person2:
+            return True
+        seen.add(person1)
+        for person in person1.adjacent:
+            if person not in seen:
+                if self.are_connected_rec(person, person2, seen):
+                    return True
+        return False
+
+
     # hackbright lecture version
     # def are_connected(self, person1, person2):
     #     """Are two people connected? Breadth-first search."""
