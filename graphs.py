@@ -30,24 +30,42 @@ class FriendGraph:
         person2.adjacent.add(person1)
 
     def are_connected(self, person1, person2):
-        """Are two people connected? Breadth-first search."""
-        possible_nodes = Queue()
+        queue = Queue()
         seen = set()
-        possible_nodes.enqueue(person1)
-        seen.add(person1)
+        queue.enqueue(person1)
 
-        while not possible_nodes.is_empty():
-            current = possible_nodes.dequeue()
-            print("checking", current)
-            if current == person2:
-                return True
+        while not queue.is_empty():
+            current = queue.dequeue()
             seen.add(current)
+            print("current:", current)
+            print("seen:", seen)
+            if current is person2:
+                return True
             for adjacent in current.adjacent:
-                if adjacent not in seen:
-                    print("added to queue:", adjacent)
-                    possible_nodes.enqueue(adjacent)
-
+                queue.enqueue(adjacent)
+        
         return False
+
+
+    # def are_connected(self, person1, person2):
+    #     """Are two people connected? Breadth-first search."""
+    #     possible_nodes = Queue()
+    #     seen = set()
+    #     possible_nodes.enqueue(person1)
+    #     seen.add(person1)
+
+    #     while not possible_nodes.is_empty():
+    #         current = possible_nodes.dequeue()
+    #         print("checking", current)
+    #         if current == person2:
+    #             return True
+    #         seen.add(current)
+    #         for adjacent in current.adjacent:
+    #             if adjacent not in seen:
+    #                 print("added to queue:", adjacent)
+    #                 possible_nodes.enqueue(adjacent)
+
+    #     return False
 
     def are_connected_rec(self, person1, person2, seen=None):
         # on new recursions, person1 becomes the adjacents
@@ -64,7 +82,7 @@ class FriendGraph:
         return False
 
 
-    # hackbright lecture version
+    ## hackbright lecture version
     # def are_connected(self, person1, person2):
     #     """Are two people connected? Breadth-first search."""
 
