@@ -7,12 +7,28 @@ class Node:
         return f"<Node data={self.data}>"
 
     def find(self, data):
-        to_visit = [self]                       # start at node
-        while to_visit:                         # loop while there are still nodes
-            current = to_visit.pop()            # set current to last item (DFS)
+        """depth first search"""
+        to_visit = [self]
+
+        while to_visit:
+            current = to_visit.pop()
+            print("current:", current)
             if current.data == data:
-                return current
-            to_visit.extend(current.children)   # add to search list
+                return f"found: {current}"
+            to_visit.extend(current.children)
+            print("to_visit:", to_visit)
+
+        return False
+
+
+
+    # def find(self, data):
+    #     to_visit = [self]                       # start at node
+    #     while to_visit:                         # loop while there are still nodes
+    #         current = to_visit.pop()            # set current to last item (DFS)
+    #         if current.data == data:
+    #             return current
+    #         to_visit.extend(current.children)   # add to search list
 
     def find_recursively(self, data, to_visit = []):
         if self.data == data:
