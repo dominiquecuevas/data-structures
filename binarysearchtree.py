@@ -8,21 +8,37 @@ class BinaryNode:
         return f"<BinaryNode data={self.data}>"
 
     def find(self, data):
-        """
-        O(log n)
-        every loop reduces the # of options by half
-        """
         current = self
+
         while current:
-            print("checking", current.data)
+            print('current:', current)
             if current.data == data:
-                return current
+                return f'found: {current}'
             elif data < current.data:
-                print("go left")
+                print('going left')
                 current = current.left
             elif data > current.data:
-                print("go right")
+                print('going right')
                 current = current.right
+        return False
+
+
+    # def find(self, data):
+    #     """
+    #     O(log n)
+    #     every loop reduces the # of options by half
+    #     """
+    #     current = self
+    #     while current:
+    #         print("checking", current.data)
+    #         if current.data == data:
+    #             return current
+    #         elif data < current.data:
+    #             print("go left")
+    #             current = current.left
+    #         elif data > current.data:
+    #             print("go right")
+    #             current = current.right
 
     def find_recursively(self, data):
         print("checking", self.data)
